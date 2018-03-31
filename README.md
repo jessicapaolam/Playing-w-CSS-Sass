@@ -1,2 +1,4 @@
-# Playing-w-CSS-Sass
-Buttons animations using css and sass.
+# Playing w/ CSS/Sass
+
+## Button animations using CSS and Sass
+
