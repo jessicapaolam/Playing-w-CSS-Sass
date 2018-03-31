@@ -1,0 +1,135 @@
+/* Vars */
+$color-bg: #d2d2d2;
+$color-btn-first: #4ecdc4;
+$color-btn-first-active: #fe4365;
+$color-btn-second: #fe4365;
+$color-btn-second-active: #4ecdc4;
+$margin-btn-first: 8em;
+$margin-btn-second: 4em;
+$font-type: Arial;
+
+/* Mixins */
+@mixin fontsize($size: 24, $base: 16) {
+	font-size: $size + px;
+	font-size: ($size/$base) * 1rem;
+}
+
+@mixin transition-timing-function($timing) {
+	-webkit-transition-timing-function: $timing;
+	-moz-transition-timing-function: $timing;
+	-o-transition-timing-function: $timing;
+	transition-timing-function: $timing;
+}
+
+@mixin animation($animation) {
+	-webkit-animation: $animation;
+	-moz-animation: $animation;
+	-o-animation: $animation;
+	animation: $animation;
+}
+
+@mixin transition-duration($duration) {
+	-webkit-transition-duration: $duration;
+	-moz-transition-duration: $duration;
+	-o-transition-duration: $duration;
+	transition-duration: $duration;
+}
+
+/* Body */
+body {
+	margin: 0 auto;
+	text-align: center;
+	background-color: $color-bg;
+}
+
+/* Button */
+a.btn-first {
+	display: inline-block;
+	margin: $margin-btn-first;
+	padding: .6em;
+	font-family: $font-type;
+	position: relative;
+	@include fontsize(26);
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	border-radius: 3px;
+	background-color: $color-btn-first;
+	-webkit-box-shadow: 0 0 0 -2px $color-bg, 0 0 0 -1px $color-btn-first;
+	box-shadow: 0 0 0 -2px $color-bg, 0 0 0 -1px $color-btn-first;
+	border: none;
+	-webkit-transition:-webkit-box-shadow .3s;
+	transition: box-shadow .3s;
+	box-shadow: 0 0 0 2px $color-bg, 0 0 0 4px darken(#fff, 5%);
+	@include animation (mymove 3.5s infinite);
+	
+}
+a.btn-second {
+	display: inline-block;
+	margin: $margin-btn-second;
+	padding: .6em;
+	font-family: $font-type;
+	@include fontsize(26);
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	border-radius: 3px;
+	background-color: $color-btn-second;
+	-webkit-box-shadow: 0 0 0 -2px $color-bg, 0 0 0 -1px $color-btn-second;
+	box-shadow: 0 0 0 -2px $color-bg, 0 0 0 -1px $color-btn-second;
+	border: none;
+	-webkit-transition:-webkit-box-shadow .3s;
+	transition: box-shadow .3s;
+	&:hover, &:focus {
+		box-shadow: 0 0 0 2px $color-bg, 0 0 0 4px darken(#ff1d74, 5%);
+		@include transition-timing-function(cubic-bezier(.6, 4, .3, .8));
+		@include animation (gelatine .5s 1);
+	}
+}
+
+/* Keyframes */
+@keyframes gelatine {
+	from, to {
+		-webkit-transform: scale(1,1);
+		transform: scale(1,1)
+	}
+	25% {
+		-webkit-transform: scale(.9,1.1);
+		transform: scale(.9,1.1)
+	}
+	50% {
+		-webkit-transform: scale(1.1,.9);
+		transform: scale(1.1,.9)
+	}
+	75% {
+		-webkit-transform: scale(.95,1.05);
+		transform: scale(.95, 1.05)
+	}
+}
+
+@keyframes mymove {
+	0%   {
+		top: 0px; 
+		left: 0px; 
+	}
+    25%  {
+    	top: 0px; 
+    	left: 100px; 
+    	background: #fe4365;
+    }
+    50%  {
+    	top: 100px; 
+    	left: 100px; 
+    	background: #4ecdc4;
+    }
+    75%  {
+    	top: 100px; 
+    	left: 0px; 
+    	background: #fe4365;
+    }
+    100% {
+    	top: 0px; 
+    	left: 0px; 
+    	background: #4ecdc4;
+    }
+}
