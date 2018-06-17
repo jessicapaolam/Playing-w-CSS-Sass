@@ -1,4 +1,4 @@
-# Playing w/ CSS and Sass
+# Playing w/ Sass
 
-Buttons animations using CSS and Sass
+Buttons animations
 
